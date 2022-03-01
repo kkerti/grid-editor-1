@@ -45,9 +45,6 @@ jobs:
           APPLE_ID: ${{ secrets.APPLE_ID }}
           APPLE_ID_PASSWORD: ${{ secrets.APPLE_ID_PASSWORD }}
 
-      - name: See directory
-        run: ls dist/*.*
-
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
