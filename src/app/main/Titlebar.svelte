@@ -47,8 +47,7 @@ import { appSettings } from "../runtime/app-helper.store";
 
 
 <top-bar style="background-color:rgb(25, 26, 32)" class="text-white static top-0 w-full p-1">
-  
-
+   
   <!-- Editor logo text svg -->
 
   <div class="draggable flex justify-between">

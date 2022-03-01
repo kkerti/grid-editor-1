@@ -22,9 +22,6 @@ global.trackEvent = trackEvent;
 
 
 
-
-
-
 const path = require('path');
 const log = require('electron-log');
 

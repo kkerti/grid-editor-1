@@ -1,6 +1,6 @@
 {
   "name": "grid_editor",
-  "version": "1.2.17",
+  "version": "1.2.15",
   "main": "./src/electron.js",
   "repository": {
     "type": "git",
@@ -39,11 +39,6 @@
     "tailwindcss": "^2.0.4"
   },
   "dependencies": {
-    "@codemirror/basic-setup": "^0.18.0",
-    "@codemirror/lang-javascript": "^0.18.0",
-    "@codemirror/legacy-modes": "^0.18.0",
-    "@codemirror/stream-parser": "^0.18.1",
-    "@codemirror/tooltip": "^0.18.4",
     "@electron/remote": "^2.0.4",
     "@influxdata/influxdb-client": "^1.21.0",
     "@rollup/plugin-commonjs": "^21.0.1",
@@ -105,6 +100,8 @@
       "target": [
         "nsis"
       ],
+      "verifyUpdateCodeSignature": false,
+      "publisherName": "Intech Studio Ltd.",
       "icon": "build/icon.png"
     },
     "mac": {

@@ -1,7 +1,7 @@
 // Top level imports
 import { writable, get } from 'svelte/store';
 import { writeBuffer } from '../runtime/engine.store';
-import { debug_store, runtime, user_input, update_elementPositionStore } from '../runtime/runtime.store';
+import { runtime, user_input, update_elementPositionStore } from '../runtime/runtime.store';
 
 import { debug_monitor_store } from '../main/panels/DebugMonitor/DebugMonitor.store';
 import { midi_monitor_store } from '../main/panels/MidiMonitor/MidiMonitor.store';

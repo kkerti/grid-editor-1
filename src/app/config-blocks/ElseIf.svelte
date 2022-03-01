@@ -20,7 +20,6 @@
   import { createEventDispatcher, onDestroy } from 'svelte';
 
   import AtomicInput from '../main/user-interface/AtomicInput.svelte';
-  import CodeEditor from '../main/user-interface/code-editor/CodeEditor.svelte';
   import stringManipulation from '../main/user-interface/_string-operations';
   import { parenthesis } from './_validators';
 

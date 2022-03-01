@@ -202,7 +202,7 @@
       {#if $devices.length === 0 && ready && $appSettings.firmwareNotificationState === 0}
         <div in:fade="{{delay: 2000, duration: 1000}}" 
           class="flex w-full h-full items-center justify-center text-white flex-col">
-          <div class=" absolute top-0 left-0  p-4 bg-primary rounded shadow w-72">
+          <div class=" absolute top-0 left-0 bg-primary rounded shadow w-72">
             <div class="text-xl py-1">Connect your module now!</div>
             <div class="py-1">Try refreshing Editor or check out the troubleshooting guide!</div>
       
