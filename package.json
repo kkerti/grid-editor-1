@@ -105,7 +105,6 @@
       "target": [
         "nsis"
       ],
-      "verifyUpdateCodeSignature": false,
       "icon": "build/icon.png"
     },
     "mac": {
