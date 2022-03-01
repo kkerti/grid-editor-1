@@ -18,11 +18,10 @@ import monaco from 'rollup-plugin-monaco-editor';
 
 const production = !process.env.ROLLUP_WATCH;
 
-
 export default {
 	input: 'src/svelte.js',
 	output: {
-		sourcemap: false,
+		sourcemap: true,
 		format: 'es',
 		name: 'app',
 		dir: 'public/build/',
@@ -33,8 +32,8 @@ export default {
 		lezer(),
 		svelte({
 			preprocess: sveltePreprocess({
-				postcss: true,
-				sourceMap: false,
+				postcss: false,
+				sourceMap: true,
 			}),
 			compilerOptions: {
 				dev: !production
@@ -74,7 +73,7 @@ export default {
 
 		// If building for production copy config svelte files to public
 
-		production && copy ({
+		copy ({
 			targets:[
 				{ src: 'src/app/config-blocks/*', dest: 'public/build/config-blocks'},
 				{ src: 'public/assets/fonts/*', dest: 'public/build/assets/fonts'}

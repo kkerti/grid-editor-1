@@ -21,6 +21,8 @@
       logelement.innerHTML += "Reload the application using " + text;
     }
 
+    // hello moto ya ye as
+ 
     if(process.platform == 'darwin'){
       text = 'Command + Shift + R';
     } else {
