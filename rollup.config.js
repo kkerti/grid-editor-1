@@ -28,7 +28,7 @@ export default {
 		json(),
 		svelte({
 			preprocess: sveltePreprocess({
-				postcss: false,
+				postcss: true,
 				sourceMap: true,
 			}),
 			compilerOptions: {
