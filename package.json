@@ -81,13 +81,6 @@
       "output": "dist/"
     },
     "extraResources": "src/app/elements/config-block/*",
-    "dmg": {
-      "sign": false
-    },
-    "afterSign": "build/notarize.js",
-    "linux": {
-      "artifactName": "${name}-Setup-${version}-${env.MODE}.${ext}"
-    },
     "win": {
       "publish": [
         {
@@ -100,21 +93,8 @@
       "target": [
         "nsis"
       ],
-      "verifyUpdateCodeSignature": false,
-      "publisherName": "Intech Studio Ltd.",
-      "icon": "build/icon.png"
-    },
-    "mac": {
-      "target": [
-        "zip",
-        "dmg"
-      ],
-      "artifactName": "${name}-Setup-${version}-${env.MODE}.${ext}",
       "icon": "build/icon.png",
-      "hardenedRuntime": true,
-      "gatekeeperAssess": false,
-      "entitlements": "build/entitlements.mac.plist",
-      "entitlementsInherit": "build/entitlements.mac.plist"
+      "publisherName": "Intech Studio Ltd."
     }
   },
   "scripts": {
