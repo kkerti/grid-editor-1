@@ -5,7 +5,7 @@
   *   tailwindcss
   */
 
-  // import Tailwindcss from './Tailwindcss.svelte';
+  import Tailwindcss from './Tailwindcss.svelte';
 
 
   /**
@@ -88,9 +88,9 @@
 
 </script>
 
-<!--
+
 <Tailwindcss />
--->
+
 <Titlebar/>
 
 <main id="app" spellcheck="false" class=" relative flex w-full h-full flex-row justify-between overflow-hidden">
