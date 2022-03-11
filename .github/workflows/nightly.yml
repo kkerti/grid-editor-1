@@ -12,7 +12,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [windows-latest, ubuntu-latest, macos-latest]
+        os: [windows-latest]
 
     steps:
       - uses: actions/checkout@v2
@@ -49,9 +49,6 @@ jobs:
           APPLE_ID: ${{ secrets.APPLE_ID }}
           APPLE_ID_PASSWORD: ${{ secrets.APPLE_ID_PASSWORD }}
 
-      - name: See directory
-        run: ls dist/*.*
-
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
@@ -61,16 +58,6 @@ jobs:
       - name: Download Artifacts
         uses: actions/download-artifact@v2
 
-      - name: Discord Notification
-        uses: rjstone/discord-webhook-notify@v1
-        if: success()
-        with:
-            severity: info
-            username: Nightly Bot
-            footer: Programming is fun.
-            description: 'Download latest nightly artifact!'
-            details: 'Link to workflows: https://github.com/intechstudio/grid-editor/actions'
-            webhookUrl: ${{ secrets.DISCORD_DEV_WEBHOOK }}
   job_2:
     name: Test
     runs-on: ubuntu-latest

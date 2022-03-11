@@ -1,5 +1,5 @@
 {
-  "name": "grid_editor",
+  "name": "grid-editor",
   "version": "1.2.15",
   "main": "./src/electron.js",
   "repository": {
@@ -74,7 +74,7 @@
   },
   "build": {
     "asar": true,
-    "appId": "com.Grid-Editor.app",
+    "appId": "com.grid-editor.app",
     "productName": "Grid Editor",
     "copyright": "Copyright © 2022 Intech Studio Ltd.",
     "directories": {
@@ -85,11 +85,11 @@
       "publish": [
         {
           "provider": "github",
-          "owner": "IntechStudioDev",
-          "repo": "grid-editor"
+          "owner": "kkerti",
+          "repo": "grid-editor-1"
         }
       ],
-      "artifactName": "${name}-Setup-${version}-${env.MODE}.${ext}",
+      "artifactName": "${name}-setup-${version}-${env.MODE}.${ext}",
       "target": [
         "nsis"
       ],
@@ -99,7 +99,7 @@
   },
   "scripts": {
     "e:builder": "cross-env NODE_ENV=production NOTARIZE=true MODE=release electron-builder --publish onTagOrDraft",
-    "e:builder:nightly": "cross-env NODE_ENV=production NOTARIZE=true MODE=nightly electron-builder --publish onTagOrDraft",
+    "e:builder:nightly": "cross-env NODE_ENV=production MODE=nightly electron-builder --publish onTagOrDraft",
     "e:builder:local": "cross-env NODE_ENV=production MODE=nightly electron-builder --publish never",
     "export": "run-s s:build e:builder",
     "export:nightly": "run-s s:build e:builder:nightly",
