@@ -7,12 +7,9 @@ on:
       - dev
 
 jobs:
-  job_1:
-    name: Build Nightly Grid Editor
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [windows-latest]
+  win-build:
+    name: build nightly grid editor for windows
+    runs-on: windows-latest
 
     steps:
       - uses: actions/checkout@v2
@@ -50,17 +47,46 @@ jobs:
       - name: Download Artifacts
         uses: actions/download-artifact@v2
 
-  job_2:
-    name: Test
-    runs-on: ubuntu-latest
+  mac-build:
+    name: build nightly grid editor for macos
+    runs-on: macos-latest
+
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: ''
+          submodules: true
 
-      - uses: actions/setup-node@v2
+      - name: Setup NodeJs
+        uses: actions/setup-node@v2
         with:
           node-version: '16.6'        
 
-      - run: npm i
+      - name: Install dependencies
+        run: npm i
+        env:
+          UA: ${{ secrets.UA }}
       
-      - name: 'Test'
-        run: npm test
+      - name: Build        
+        run: npm run export:nightly
+        if: ${{ always() }}
+        env:     
+          # gh repo token
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+          # Apple ID
+          APPLE_ID: ${{secrets.APPLE_ID}}
+          APPLE_ID_PASSWORD: ${{secrets.APPLE_ID_PASSWORD}}
+
+          # macOS Code signing
+          CSC_LINK: ${{ secrets.CSC_LINK }}
+          CSC_KEY_PASSWORD: ${{ secrets.CSC_KEY_PASSWORD }}
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: nightly
+          path: dist/*.*
+      
+      - name: Download Artifacts
+        uses: actions/download-artifact@v2
