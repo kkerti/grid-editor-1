@@ -41,7 +41,7 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: nightly
+          name: windows-nightly
           path: dist/*.*
       
       - name: Download Artifacts
@@ -85,7 +85,7 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: nightly
+          name: macos-nightly
           path: dist/*.*
       
       - name: Download Artifacts
