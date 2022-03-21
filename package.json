@@ -74,7 +74,7 @@
   },
   "build": {
     "asar": true,
-    "appId": "com.grid-editor.app",
+    "appId": "intechstudio.grid-editor.app",
     "productName": "Grid Editor",
     "copyright": "Copyright © 2022 Intech Studio Ltd.",
     "directories": {
@@ -94,6 +94,22 @@
         "nsis"
       ],
       "icon": "build/icon.png"
+    },
+    "dmg": {
+      "sign": false
+    },
+    "afterSign": "build/notarize.js",
+    "mac": {
+      "target": [
+        "zip",
+        "dmg"
+      ],
+      "artifactName": "${name}-setup-${version}-${env.MODE}.${ext}",
+      "icon": "build/icon.png",
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.plist"
     }
   },
   "scripts": {
