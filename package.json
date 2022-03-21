@@ -1,6 +1,6 @@
 {
   "name": "grid-editor",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "main": "./src/electron.js",
   "repository": {
     "type": "git",
@@ -101,7 +101,6 @@
     "afterSign": "build/notarize.js",
     "mac": {
       "target": [
-        "zip",
         "dmg"
       ],
       "artifactName": "${name}-setup-${version}-${env.MODE}.${ext}",
