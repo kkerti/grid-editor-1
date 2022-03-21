@@ -7,7 +7,7 @@ on:
 
 jobs:
   win-build:
-    name: build stable grid editor for windows
+    name: Windows Build
     runs-on: windows-latest
 
     steps:
@@ -53,9 +53,9 @@ jobs:
           draft: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
+
   macos-build:
-    name: build stable grid editor for windows
+    name: MacOS Build
     runs-on: macos-latest
 
     steps:

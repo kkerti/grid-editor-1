@@ -8,7 +8,7 @@ on:
 
 jobs:
   win-build:
-    name: build nightly grid editor for windows
+    name: Windows Build
     runs-on: windows-latest
 
     steps:
@@ -48,7 +48,7 @@ jobs:
         uses: actions/download-artifact@v2
 
   mac-build:
-    name: build nightly grid editor for macos
+    name: MacOS Build
     runs-on: macos-latest
 
     steps:
