@@ -2,6 +2,8 @@ const { app, BrowserWindow, ipcMain, Tray, Menu, nativeImage } = require('electr
 const { autoUpdater } = require('electron-updater');
 const { trackEvent } = require('./analytics');
 
+require('@electron/remote/main').initialize();
+
 const { serial } = require('./ipcmain_serialport');
 
 
@@ -114,8 +116,12 @@ function createWindow() {
 
     const mode = process.env.NODE_ENV;
 
+    const windowTitle = 'Grid Editor - ' + process.env.npm_package_version;
+
     // First we'll get our height and width. This will be the defaults if there wasn't anything saved
     let { width, height } = store.get('windowBounds');
+
+    console.log(windowTitle)
 
     mainWindow = new BrowserWindow({
         width,
@@ -124,6 +130,12 @@ function createWindow() {
         'minWidth': 800,
         backgroundColor: '#1e2628',
         frame: false,
+        titleBarStyle: 'hidden',
+        trafficLightPosition: {
+          x: 7,
+          y: 5
+        },
+        title: windowTitle,
         webPreferences: {
           nodeIntegration: true,
           contextIsolation: false,
@@ -133,9 +145,7 @@ function createWindow() {
         icon:'./icon.png'
     });
 
-    serial.mainWindow = mainWindow
-
-    require('@electron/remote/main').initialize();
+    serial.mainWindow = mainWindow;
     require("@electron/remote/main").enable(mainWindow.webContents);
 
     mainWindow.loadURL(`file://${path.join(__dirname, '../public/index.html')}`);
